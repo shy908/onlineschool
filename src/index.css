@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .button_cls{
+        @apply md:px-12 md:py-2.5 px-6 py-1.5 text-white font-semibold text-sm md:text-lg
+            transition-all duration-200 rounded-lg
+    }
+}
+
+/* Hide the scrollbar */
+.tabs-navigation {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .tabs-navigation::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Edge */
+  }
+  
+  /* Ensure tab content scrolls independently */
+  @media (max-width: 768px) {
+    .tab-content {
+      overflow-y: auto;
+    }
+  
+    .scroll-section {
+      scroll-margin-top: 6rem;
+    }
+  }
+  
