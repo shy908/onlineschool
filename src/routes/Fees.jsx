@@ -1,98 +1,103 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Fees = () => {
-  const prePrimaryFee = 500;
-  const primaryFee = 600;
-  const highSchoolFee = 700;
-
-  const calculateAnnual = (monthlyFee) => monthlyFee * 12;
-  const calculateTermly = (monthlyFee) => monthlyFee * 4;
-  const calculateDiscountedAnnual = (annualFee) => annualFee - annualFee * 0.05;
+  const grades = [
+    {
+      level: "Grade R",
+      fee: 500,
+      age: "5-6 years",
+      focus: "Focus on foundational learning",
+      activities: "Play-based activities",
+      environment: "Safe and nurturing environment",
+    },
+    {
+      level: "Primary (Grade 1-7)",
+      fee: 550,
+      age: "Grade 1-7",
+      focus: "Comprehensive curriculum",
+      activities: "Subject-based learning",
+      environment: "Focus on key skills development",
+    },
+    {
+      level: "Secondary (Form 1-4)",
+      fee: 600,
+      age: "Form 1-4",
+      focus: "Advanced subject choices",
+      activities: "Preparation for high school",
+      environment: "Personalized attention",
+    },
+    {
+      level: "High School (Form 5-6)",
+      fee: 800,
+      age: "Form 5-6",
+      focus: "In-depth subject focus",
+      activities: "Exam preparation",
+      environment: "University and career readiness",
+    },
+  ];
 
   return (
-    <div className="w-full max-w-3xl mx-auto font-sans text-gray-800 p-4">
+    <div className="w-full max-w-6xl mx-auto p-6 font-sans text-gray-800">
       {/* Fees Overview Section */}
-      <div className="mb-6 text-start md:text-center">
-        <h2 className="text-4xl md:text-5xl mt-6 text-[#1f5256] font-bold mb-4">
-          Fees Overview
-        </h2>
-        <p className="text-gray-600">
+      <div className="mb-8 text-center">
+        <h2 className="text-4xl font-bold text-primary mb-4">Fees Overview</h2>
+        <p className="text-lightText text-lg">
           All our school formats come with transparent fee structures to suit
           different needs and budgets.
         </p>
       </div>
 
-      {/* Fee Sections */}
-      {[
-        { level: "Pre-primary", fee: prePrimaryFee },
-        { level: "Primary (Grade 1 to 7)", fee: primaryFee },
-        { level: "High School (Form 1 to 6)", fee: highSchoolFee },
-      ].map(({ level, fee }, index) => (
-        <div key={index} className="mb-10">
-          <p className="text-[#1f5256] text-2xl md:text-3xl text-center font-medium mt-8 mb-8 bg-slate-300 p-4 rounded-lg">
-            {level}
-          </p>
+      {/* Fee Table Section */}
+      <div className="overflow-x-auto mb-6">
+        <table className="min-w-full table-auto text-left border-collapse">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="px-8 py-6 text-lg font-semibold">Grade</th>
+              <th className="px-8 py-6 text-lg font-semibold">Monthly Fee</th>
+              <th className="px-8 py-6 text-lg font-semibold">Termly Fee</th>
+              <th className="px-8 py-6 text-lg font-semibold">Annual Fee</th>
+              <th className="px-8 py-6 text-lg font-semibold">Age</th>
+              <th className="px-8 py-6 text-lg font-semibold">Focus</th>
+            </tr>
+          </thead>
+          <tbody>
+            {grades.map((grade, index) => (
+              <motion.tr
+                key={index}
+                className="border-t hover:bg-gray-50"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+              >
+                <td className="px-8 py-6">{grade.level}</td>
+                <td className="px-8 py-6">R{grade.fee}</td>
+                <td className="px-8 py-6">R{(grade.fee * 3).toFixed(2)}</td>
+                <td className="px-8 py-6">R{(grade.fee * 12).toFixed(2)}</td>
+                <td className="px-8 py-6">{grade.age}</td>
+                <td className="px-8 py-6">{grade.focus}</td>
+              </motion.tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
-          {/* Fee Table */}
-          <div className="border border-gray-300 rounded-lg shadow-md overflow-hidden">
-            <div className="bg-purple-200 p-6 text-center">
-              <p className="text-xl">Live online classes</p>
-            </div>
-            <div className="p-6 divide-y divide-gray-300">
-              <div className="py-4 flex justify-between items-center">
-                <p className="text-lg">Monthly</p>
-                <div className="text-right">
-                  <p className="font-semibold text-xl">R{fee}</p>
-                  <p className="text-sm text-gray-500">12 installments</p>
-                  <p className="text-sm text-gray-500">
-                    Total: R{calculateAnnual(fee)}
-                  </p>
-                </div>
-              </div>
-              <div className="py-4 flex justify-between items-center">
-                <p className="text-lg">Termly</p>
-                <div className="text-right">
-                  <p className="font-semibold text-xl">R{calculateTermly(fee)}</p>
-                  <p className="text-sm text-gray-500">4 installments</p>
-                  <p className="text-sm text-gray-500">
-                    Total: R{calculateTermly(fee)}
-                  </p>
-                </div>
-              </div>
-              <div className="py-4 flex justify-between items-center">
-                <p className="text-lg">Annual once-off payment</p>
-                <div className="text-right">
-                  <p className="font-semibold text-xl">
-                    R{calculateDiscountedAnnual(calculateAnnual(fee))}
-                  </p>
-                  <p className="text-sm text-green-600">
-                    Save R{calculateAnnual(fee) * 0.05}
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    Original: R{calculateAnnual(fee)}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-purple-50 p-6 text-sm">
-              <p className="mb-2">
-                <strong>5% discount</strong> when you pay the annual fees
-                upfront.
-              </p>
-              <p>
-                <strong>5% sibling discount</strong> will be applied to school
-                fees of the second and any subsequent siblings.
-              </p>
-              {/* Added Information */}
-              {level === "High School (Form 1 to 6)" && (
-                <p className="mt-4 text-sm">
-                  <strong>Note:</strong> If you are taking 3 or fewer subjects, the fee is reduced to R500 per month.
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
-      ))}
+      {/* Additional Information */}
+      <div className="mt-8 text-sm text-lightText">
+        <p className="mb-6">
+          <strong>5% discount</strong> when you pay the annual fees upfront.
+        </p>
+        <p className="mb-6">
+          <strong>5% sibling discount</strong> will be applied to school
+          fees for the second and any subsequent siblings.
+        </p>
+        {grades.find((grade) => grade.level === "High School (Form 5-6)") && (
+          <p className="mt-6 text-sm">
+            <strong>Note:</strong> If you are taking 3 or fewer subjects,
+            the fee is reduced to R500 per month.
+          </p>
+        )}
+      </div>
     </div>
   );
 };

@@ -11,9 +11,9 @@ const SliderCard = ({ name, image, role, comment, rating }) => {
   ));
 
   return (
-    <div className="flex flex-col items-center space-y-4 p-6 border rounded-lg shadow-md bg-white max-w-md mx-auto">
+    <div className="flex flex-col items-center space-y-4 p-6 border rounded-lg shadow-md bg-white max-w-md mx-auto transition-transform transform hover:scale-105 hover:shadow-xl">
       {/* Image Section */}
-      <div className="w-40 h-40 overflow-hidden rounded-full">
+      <div className="w-40 h-40 overflow-hidden rounded-full border-2 border-primary">
         <img
           src={image}
           alt={`${name}'s profile`}
@@ -28,7 +28,7 @@ const SliderCard = ({ name, image, role, comment, rating }) => {
       </div>
 
       {/* Comment */}
-      <p className="text-center text-gray-600 italic">"{comment}"</p>
+      <p className="text-center text-gray-600 italic mt-2">"{comment}"</p>
 
       {/* Star Rating */}
       <div className="flex space-x-1">{stars}</div>

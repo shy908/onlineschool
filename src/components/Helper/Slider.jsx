@@ -2,6 +2,7 @@ import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import SliderCard from './SliderCard';
+import shy from '../../assets/shy.jpg';
 
 const testimonials = [
     {
@@ -14,7 +15,7 @@ const testimonials = [
     },
     {
       name: 'Shy Manuel',
-      image: 'https://scontent-cpt1-1.xx.fbcdn.net/v/t39.30808-6/405485688_334631559183588_5041661401634437292_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=oeJIPs8pSf8Q7kNvgGDKKzS&_nc_zt=23&_nc_ht=scontent-cpt1-1.xx&_nc_gid=AwFxvCI3-mTWN2wYHuIAtOZ&oh=00_AYC9eD6TMEZQtrsGOM_c6xW7y7cV1iQ-xq49NimBbvBjBw&oe=6781F6D0',
+      image: shy,
       role: 'Web Developer',
       comment:
         'Learning web development through online platforms was a game-changer for me. The hands-on coding challenges and community-driven support helped me build a strong portfolio and secure my current job as a web developer. I am thankful for these online platforms that allowed me to learn at my own pace.',

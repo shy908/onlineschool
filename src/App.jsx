@@ -1,48 +1,67 @@
-import React, { useState, useEffect } from "react";
+import React, { Suspense, lazy } from "react";
 import './index.css';
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom"; 
-import Home from "./routes/Home";
 import NavBar from "./components/Navbar";
-import Contact from "./routes/Contact";
-import ScrollToTop from "./components/ScrollToTop";
-import Fees from "./routes/Fees";
 import Footer from "./components/Footer/Footer";
-import HowItWork from "./routes/HowItWorks";
-import FAQ from "./routes/FAQ";
+import ScrollToTop from "./components/ScrollToTop";
 import Loading from "./components/Loading";
-import Courses from "./components/Courses/Courses";
+import { FaWhatsapp } from "react-icons/fa"; // Import WhatsApp icon
+
+// Lazy loading components for better performance
+const Home = lazy(() => import("./routes/Home"));
+const Contact = lazy(() => import("./routes/Contact"));
+const Pricing = lazy(() => import("./routes/Pricing"));
+const FAQ = lazy(() => import("./routes/FAQ"));
+const HowItWork = lazy(() => import("./routes/HowItWorks"));
+const AllServices = lazy(() => import("./components/Services/allServices"));
+const HomeSchooling = lazy(() => import('./components/Services/HomeSchooling'));
+const PrimaryEducation = lazy(() => import('./components/Services/PrimaryEducation'));
+const SecondaryEducation = lazy(() => import('./components/Services/SecondaryEducation'));
+const HighSchoolEducation = lazy(() => import('./components/Services/HighSchoolEducation'));
+const AdultLiteracyEducation = lazy(() => import('./components/Services/AdultLiteracyEducation'));
+const ProfessionalCourses = lazy(() => import('./components/Services/ProfessionalCourses'));
+const NotFound = lazy(() => import('./components/NotFound'));
 
 export default function App() { 
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate a loading process, such as fetching resources or data
-    const timer = setTimeout(() => setLoading(false), 2000); // Display for 2 seconds
-    return () => clearTimeout(timer); // Cleanup the timer on unmount
-  }, []);
-
-  if (loading) {
-    return <Loading />;
-  }
-
   return ( 
     <Router> 
       <div className="App"> 
         <ScrollToTop>
           <NavBar />
           
-          <Routes> 
-            <Route path="/" element={<Home />} /> 
-            <Route path="/home" element={<Navigate to="/" />} /> 
-            <Route path="/contact" element={<Contact />} /> 
-            <Route path="/fees" element={<Fees />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/how-it-works" element={<HowItWork />} />
-            <Route path="/courses" element={<Courses />} />
-          </Routes> 
+          <Suspense fallback={<Loading />}>
+            <Routes> 
+              <Route path="/" element={<Home />} /> 
+              <Route path="/home" element={<Navigate to="/" />} /> 
+              <Route path="/contact" element={<Contact />} /> 
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/how-it-works" element={<HowItWork />} />
+              <Route path="/services" element={<AllServices />} />
+              <Route path="/service/home-schooling" element={<HomeSchooling />} />
+              <Route path="/service/primary-education" element={<PrimaryEducation />} />
+              <Route path="/service/secondary-education" element={<SecondaryEducation />} />
+              <Route path="/service/high-school" element={<HighSchoolEducation />} />
+              <Route path="/service/adult-literacy" element={<AdultLiteracyEducation />} />
+              <Route path="/service/professional-courses" element={<ProfessionalCourses />} />
+              
+              {/* Fallback Route for 404 Page */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </ScrollToTop>
 
         <Footer />
+
+        {/* WhatsApp Button */}
+        <a 
+          href="https://wa.me/message/GWB4QDNZVRUFL1 " 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="whatsapp-button"
+        >
+          <FaWhatsapp size={40} />
+        </a>
       </div> 
     </Router> 
   ); 

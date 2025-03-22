@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function MakingChoice() {
   return (
     <motion.div
-      className="max-w-4xl mx-auto py-10 px-6 mt-10 bg-gray-100 rounded-xl shadow-lg"
+      className="max-w-3xl mx-auto py-12 px-8 mt-12 bg-gray-100 rounded-xl shadow-lg"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -13,7 +13,7 @@ function MakingChoice() {
     >
       {/* Header */}
       <motion.h2
-        className="text-3xl font-bold text-[#1f5152] mb-6 text-center"
+        className="text-4xl font-semibold text-primary mb-6 text-center"
         initial={{ opacity: 0, y: -50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -24,7 +24,7 @@ function MakingChoice() {
 
       {/* Description */}
       <motion.p
-        className="text-lg text-[#1f5254] mb-6 leading-relaxed text-center"
+        className="text-lg text-textColor mb-8 leading-relaxed text-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.2 }}
@@ -45,10 +45,11 @@ function MakingChoice() {
         viewport={{ once: true }}
       >
         <Link
-          to="/courses"
-          className="inline-block px-8 py-3 text-lg font-medium text-white bg-[#1f5152] rounded-lg shadow-md hover:bg-[#0d2c2d] transition-transform transform hover:scale-105"
+          to="/services"
+          className="inline-block px-10 py-4 text-lg font-medium text-white bg-primary rounded-lg shadow-md
+           hover:bg-secondary transition-transform transform hover:scale-105"
         >
-          Explore Our Courses
+          Explore Our Services
         </Link>
       </motion.div>
     </motion.div>

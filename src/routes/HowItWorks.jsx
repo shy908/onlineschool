@@ -9,7 +9,7 @@ import HowItWorks from "../components/About/HowItWorks";
 import CodeOfConduct from "../components/About/CodeOfConduct";
 
 function HowItWork() {
-  const [activeTab, setActiveTab] = useState("howitworks");
+  const [activeTab, setActiveTab] = useState("howItWorks");
 
   // Refs for sections
   const sectionsRef = {
@@ -20,6 +20,16 @@ function HowItWork() {
     whatYouNeed: useRef(null),
     makingChoice: useRef(null),
     codeOfConduct: useRef(null),
+  };
+
+  const tabLabels = {
+    howItWorks: "HOW IT WORKS",
+    support: "SUPPORT",
+    parentRole: "PARENT ROLE",
+    whatToExpect: "WHAT TO EXPECT",
+    whatYouNeed: "WHAT YOU NEED",
+    makingChoice: "MAKING A CHOICE",
+    codeOfConduct: "CODE OF CONDUCT",
   };
 
   useEffect(() => {
@@ -58,7 +68,7 @@ function HowItWork() {
         return <WhatYouNeed />;
       case "makingChoice":
         return <MakingChoice />;
-      case "codeofconduct":
+      case "codeOfConduct":
         return <CodeOfConduct />;
       default:
         return <HowItWorks />;
@@ -66,23 +76,24 @@ function HowItWork() {
   };
 
   return (
-    <div className="py-16 bg-gray-50">
+    <div className="py-16 bg-bgLight">
       {/* Tab Navigation */}
-      <div className="tabs-navigation sticky top-20 bg-white shadow-md z-10 mb-8 flex overflow-x-auto whitespace-nowrap scrollbar-hide">
+      <div className="tabs-navigation sticky top-20 bg-white shadow-md z-[100] mb-8 flex overflow-x-auto whitespace-nowrap scrollbar-hide">
         {Object.keys(sectionsRef).map((tab) => (
           <button
             key={tab}
             onClick={() => {
               const section = sectionsRef[tab].current;
-              section && section.scrollIntoView({ behavior: "smooth" });
+              section && section.scrollIntoView({ behavior: "smooth", block: "center" });
             }}
+            aria-label={`Navigate to ${tabLabels[tab].toLowerCase()}`}
             className={`px-6 py-3 text-sm md:text-base lg:text-lg rounded-lg font-semibold transition-colors duration-300 ${
               activeTab === tab
-                ? " text-[#f5b921]"
-                : " text-[#1f5152] hover:bg-[#f1f1f1]"
+                ? "text-primary border-b-2 border-primary"
+                : "text-textColor hover:bg-secondary hover:text-white"
             }`}
           >
-            {tab.replace(/([A-Z])/g, " $1").toUpperCase()}
+            {tabLabels[tab]}
           </button>
         ))}
       </div>

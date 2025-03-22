@@ -16,7 +16,7 @@ const Cta = () => {
             Transform Your Learning Experience Online!
           </p>
           <p className="text-lg md:text-2xl">
-            Join <span className="font-extrabold text-[#ffdd40]">MADUYU ACADEMY</span>, your gateway to interactive online schooling. 
+            Join <span className="font-extrabold text-secondary">MADUYU ACADEMY</span>, your gateway to interactive online schooling. 
             Explore exciting subjects, learn from passionate educators, and unlock your potential—all from the comfort of your home!
           </p>
         </div>
@@ -25,7 +25,7 @@ const Cta = () => {
         <div className="w-full lg:w-auto">
           <Link
             to="/contact"
-            className="flex items-center justify-center bg-[#f5b921] text-[#1f5156] font-semibold text-base md:text-lg rounded-lg py-3 px-8 shadow-lg transition-transform transform hover:scale-105 hover:bg-[#b7a435] focus:outline-none focus:ring-2 focus:ring-[#357ab7] focus:ring-offset-2"
+            className="flex items-center justify-center bg-primary text-bgLight font-semibold text-base md:text-lg rounded-lg py-3 px-8 shadow-lg transition-transform transform hover:scale-105 hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
             Contact Us
             <svg

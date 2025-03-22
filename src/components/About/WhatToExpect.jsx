@@ -4,29 +4,42 @@ import { motion } from 'framer-motion';
 const WhatToExpect = () => {
   return (
     <motion.div
-      className="py-8 bg-gray-50"
+      className="py-12 bg-gradient-to-b from-blue-50 to-blue-100"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
     >
+      {/* Title Section */}
       <div className="max-w-4xl mx-auto text-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">What to Expect at Maduyu Academy</h2>
-        <p className="text-gray-600">
+        <motion.h2
+          className="text-3xl font-bold text-gray-800 mb-4"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.6 }}
+        >
+          What to Expect at Maduyu Academy
+        </motion.h2>
+        <motion.p
+          className="text-gray-600"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8 }}
+        >
           At Maduyu Academy, we provide an immersive learning experience with a focus on the ZIMSEC curriculum,
           ensuring every student receives the education they deserve.
-        </p>
+        </motion.p>
       </div>
 
       {/* Top Two Boxes */}
       <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Dynamic Learning Environment */}
         <motion.div
-          className="bg-blue-50 shadow-md rounded-lg p-6"
+          className="bg-white shadow-xl rounded-lg p-8 border-l-4 border-blue-600"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
+          transition={{ duration: 1, delay: 1 }}
         >
           <h3 className="text-2xl font-bold text-gray-800 mb-4">A Dynamic Learning Environment</h3>
           <p className="text-gray-600">
@@ -37,10 +50,10 @@ const WhatToExpect = () => {
 
         {/* Quality Teaching */}
         <motion.div
-          className="bg-green-50 shadow-md rounded-lg p-6"
+          className="bg-white shadow-xl rounded-lg p-8 border-l-4 border-green-600"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8 }}
+          transition={{ duration: 1, delay: 1.2 }}
         >
           <h3 className="text-2xl font-bold text-gray-800 mb-4">Quality Teaching</h3>
           <p className="text-gray-600">
@@ -54,10 +67,10 @@ const WhatToExpect = () => {
       <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Learn Your Way */}
         <motion.div
-          className="bg-yellow-50 shadow-md rounded-lg p-6"
+          className="bg-white shadow-xl rounded-lg p-8 border-l-4 border-yellow-600"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1 }}
+          transition={{ duration: 1, delay: 1.4 }}
         >
           <h3 className="text-2xl font-bold text-gray-800 mb-4">Learn Your Way</h3>
           <p className="text-gray-600">
@@ -68,10 +81,10 @@ const WhatToExpect = () => {
 
         {/* There's Place for Everyone */}
         <motion.div
-          className="bg-purple-50 shadow-md rounded-lg p-6"
+          className="bg-white shadow-xl rounded-lg p-8 border-l-4 border-purple-600"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2 }}
+          transition={{ duration: 1, delay: 1.6 }}
         >
           <h3 className="text-2xl font-bold text-gray-800 mb-4">There's Place for Everyone</h3>
           <p className="text-gray-600">
@@ -84,10 +97,10 @@ const WhatToExpect = () => {
 
       {/* Bottom Section */}
       <motion.div
-        className="max-w-4xl mx-auto bg-blue-50 shadow-md rounded-lg p-6 mb-8"
+        className="max-w-4xl mx-auto bg-white shadow-xl rounded-lg p-8 border-l-4 border-blue-600 mb-8"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1.4 }}
+        transition={{ duration: 1, delay: 1.8 }}
       >
         <h3 className="text-2xl font-bold text-gray-800 mb-4">A Safe, Supportive Environment</h3>
         <p className="text-gray-600">

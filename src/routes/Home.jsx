@@ -1,7 +1,7 @@
 import React from 'react'
 import Hero from '../components/Hero/Hero'
 import About from '../components/About/About'
-import Courses from '../components/Courses/Courses'
+import Services from '../components/Services/Services'
 import Features from '../components/Features/Features';
 import Reviews from '../components/Reviews/Reviews'
 import Cta from '../components/QuickChat/cta'
@@ -11,7 +11,7 @@ const Home = () => {
     <div className='overflow-hidden'>
       <Hero/>
       <About/>
-      <Courses/>
+      <Services/>
       <Features/>
       <Reviews/>
       <Cta/>
